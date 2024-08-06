@@ -1,0 +1,30 @@
+RSI Strategy Overview
+The Relative Strength Index (RSI) is a momentum oscillator that measures the speed and change of price movements
+3
+. It is calculated using the average gains and losses over a given time period, typically 14 periods
+3
+. The RSI oscillates between 0 and 100, with readings above 70 considered overbought and readings below 30 considered oversold
+3
+.
+The RSI is calculated as follows
+3
+:
+Calculate the average gain and loss over N periods
+Smooth the gain and loss using an exponential moving average (EMA)
+Calculate the relative strength (RS) as the ratio of the smoothed gain to the smoothed loss
+Calculate the RSI using the formula: RSI = 100 - (100 / (1 + RS))
+When the RSI crosses above 30 from below, it generates a buy signal
+3
+. When the RSI crosses below 70 from above, it generates a sell signal
+3
+. Divergences between the RSI and price can also signal potential reversals.
+Strategy Implementation
+To implement this strategy in Pine Script, you would
+3
+:
+Calculate the RSI using the ta.rsi() function
+Define overbought and oversold levels (e.g. 70 and 30)
+Use ta.crossover() and ta.crossunder() to detect when the RSI crosses the overbought/oversold levels
+Plot the RSI and overbought/oversold levels using plot()
+Plot buy/sell signals using plotshape() when the RSI crosses the levels
+Be sure to include clear descriptions of the strategy and RSI calculation in your GitHub README file. Use proper risk management, as the strength of the trend can override overbought/oversold signals.
